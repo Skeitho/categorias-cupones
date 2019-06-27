@@ -1,17 +1,17 @@
 package com.concrete.categoria.controller;
 
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.concrete.categoria.dto.CategoryThreeDTO;
+import com.concrete.categoria.dto.SubcategoryLevel2DTO;
+import com.concrete.categoria.dto.SubcategoryLevel3DTO;
+import com.concrete.categoria.dto.SubcategoryLevel4DTO;
 import com.concrete.categoria.service.CategoryService;
 import com.concrete.categoria.service.ConsumeService;
-import com.concrete.categoria.service.imp.ConsumeServiceImp;
+import com.google.gson.Gson;
 
 @RestController
 @RequestMapping("/categoria")
@@ -25,44 +25,51 @@ public class CategoryController {
 	@RequestMapping(method = RequestMethod.GET, value = "listar/todo", produces = "application/json")
 	public String getAll() {
 
+		String json = new Gson().toJson(categoryService.getCategoriesTree());
+		return json;
 		
-		CategoryThreeDTO  categoryThreeDTO =  consumeService.getCategories();
-		
-		return "welcome";
-
-		//return ":)";
 	}
-	
-	
+		
 	@RequestMapping(method = RequestMethod.GET, value = "relevante/listar/top-5", produces = "application/json")
 	public String getTop5() {
-
 		
-		CategoryThreeDTO  categoryThreeDTO =  categoryService.getTop5();
-		
-		return "welcome";
+		String json = new Gson().toJson(categoryService.getTop5Categories());
+		return json;
 
-		//return ":)";
 	}
 	
-	@RequestMapping(method = RequestMethod.GET, value = "listar/restantes", produces = "application/json")
-	public String getLeft() {
+	@RequestMapping(method = RequestMethod.GET, value = "relevante/listar/restantes", produces = "application/json")
+	public String getRemainingCategories() {
 
-		
-		CategoryThreeDTO  categoryThreeDTO =  consumeService.getCategories();
-		
-		return "welcome";
+		String json = new Gson().toJson(categoryService.getRemainingCategories());
+		return json;
+	}
+	
+	@RequestMapping(method = RequestMethod.GET, value = "{sub2}", produces = "application/json")
+	public String getSubCategory2ListOfCategory(@PathVariable String sub2) {
 
-		//return ":)";
+		SubcategoryLevel2DTO[]  subcategoriesLevel2 = categoryService.getSubCategory2ListOfCategory(sub2);
+		String json = new Gson().toJson(subcategoriesLevel2);
+		return json;
+		
 	} 
 	
-	
-	
-	/*
-	@RequestMapping(method = RequestMethod.GET, value="/breed/{breed}", produces = "application/json")
-	public String ByBreed(@PathVariable("breed") String breed) {
+	@RequestMapping(method = RequestMethod.GET, value = "{sub2}/sub-categoria/{sub3}", produces = "application/json")
+	public String getSubCategory3ListOfCategory(@PathVariable String sub2,@PathVariable String sub3) {
 
+		SubcategoryLevel3DTO[]  subcategoriesLevel3 = categoryService.getSubCategory3ListOfSubCategory2(sub2, sub3);
+		String json = new Gson().toJson(subcategoriesLevel3);
+		return json;
+		
+	} 
+	
+	@RequestMapping(method = RequestMethod.GET, value = "{sub2}/sub-categoria/{sub3}/sub-categoria/{sub4}", produces = "application/json")
+	public String getSubCategory4ListOfCategory(@PathVariable String sub2,@PathVariable String sub3,@PathVariable String sub4) {
 
-		return "";
-	}*/
+		SubcategoryLevel4DTO[]  subcategoriesLevel4 = categoryService.getSubCategory4ListOfSubCategory3(sub2, sub3, sub4);
+		String json = new Gson().toJson(subcategoriesLevel4);
+		return json;
+		
+	} 
+
 }

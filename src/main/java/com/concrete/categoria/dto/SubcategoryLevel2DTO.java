@@ -9,6 +9,15 @@ public class SubcategoryLevel2DTO {
 	String iconImageUrl;
 	SubcategoryLevel3DTO[] subcategories;
 	
+	public SubcategoryLevel2DTO(String id, String name, Integer relevance, String iconImageUrl,
+			SubcategoryLevel3DTO[] subcategories) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.relevance = relevance;
+		this.iconImageUrl = iconImageUrl;
+		this.subcategories = subcategories;
+	}
 	public String getId() {
 		return id;
 	}

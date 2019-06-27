@@ -11,6 +11,17 @@ public class SubcategoryLevel3DTO {
 	String smallImageUrl;
 	SubcategoryLevel4DTO[] subcategories;
 	
+	public SubcategoryLevel3DTO(String id, String name, Integer relevance, String largeImageUrl, String mediumImageUrl,
+			String smallImageUrl, SubcategoryLevel4DTO[] subcategories) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.relevance = relevance;
+		this.largeImageUrl = largeImageUrl;
+		this.mediumImageUrl = mediumImageUrl;
+		this.smallImageUrl = smallImageUrl;
+		this.subcategories = subcategories;
+	}
 	public String getId() {
 		return id;
 	}

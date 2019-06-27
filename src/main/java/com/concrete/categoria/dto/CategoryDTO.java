@@ -8,6 +8,14 @@ public class CategoryDTO {
 	Integer relevance;
 	SubcategoryLevel2DTO[] subcategories;
 	
+	
+	public CategoryDTO(String id, String name, Integer relevance, SubcategoryLevel2DTO[] subcategories) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.relevance = relevance;
+		this.subcategories = subcategories;
+	}
 	public String getId() {
 		return id;
 	}

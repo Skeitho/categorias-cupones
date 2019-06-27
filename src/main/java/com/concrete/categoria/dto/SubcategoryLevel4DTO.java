@@ -7,6 +7,12 @@ public class SubcategoryLevel4DTO {
 	String name;
 	Integer relevance;
 	
+	public SubcategoryLevel4DTO(String id, String name, Integer relevance) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.relevance = relevance;
+	}
 	public String getId() {
 		return id;
 	}

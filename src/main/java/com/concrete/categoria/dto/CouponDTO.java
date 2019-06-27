@@ -8,6 +8,16 @@ public class CouponDTO {
 	String image;
 	String expiresAt;
 	
+	
+	
+	public CouponDTO(String id, String description, String seller, String image, String expiresAt) {
+		super();
+		this.id = id;
+		this.description = description;
+		this.seller = seller;
+		this.image = image;
+		this.expiresAt = expiresAt;
+	}
 	public String getId() {
 		return id;
 	}

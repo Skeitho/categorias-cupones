@@ -8,6 +8,14 @@ public class CategoryThreeDTO {
 	String relevance;
 	CategoryDTO[] subcategories;
 	
+
+	public CategoryThreeDTO(String id, String name, String relevance, CategoryDTO[] subcategories) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.relevance = relevance;
+		this.subcategories = subcategories;
+	}
 	public String getId() {
 		return id;
 	}
