@@ -14,4 +14,11 @@ public class CouponController {
 
 		return "";
 	}
+	
+	@RequestMapping(method = RequestMethod.GET, value = "listar/no-expirados", produces = "application/json")
+	public String getNotExpired() {
+
+
+		return "";
+	}
 }

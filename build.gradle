@@ -4,6 +4,7 @@ plugins {
 }
 
 apply plugin: 'io.spring.dependency-management'
+apply plugin: 'war'
 
 group = 'com.concrete'
 version = '0.0.1-SNAPSHOT'
@@ -17,5 +18,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-cache'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'com.google.code.gson:gson:2.8.5'
+	providedRuntime 'javax.servlet:jstl:1.2'
+    providedRuntime 'org.apache.tomcat.embed:tomcat-embed-jasper:9.0.14'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }

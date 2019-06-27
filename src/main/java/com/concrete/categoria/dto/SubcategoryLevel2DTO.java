@@ -5,7 +5,7 @@ public class SubcategoryLevel2DTO {
 	
 	String id;
 	String name;
-	String relevance;
+	Integer relevance;
 	String iconImageUrl;
 	SubcategoryLevel3DTO[] subcategories;
 	
@@ -21,10 +21,10 @@ public class SubcategoryLevel2DTO {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getRelevance() {
+	public Integer getRelevance() {
 		return relevance;
 	}
-	public void setRelevance(String relevance) {
+	public void setRelevance(Integer relevance) {
 		this.relevance = relevance;
 	}
 	public String getIconImageUrl() {
