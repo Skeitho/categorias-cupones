@@ -33,6 +33,12 @@ public class CouponServiceImp implements CouponService {
 	public Collection<CouponDTO> getNotExpiredCoupons() {
 		
 		Collection<CouponDTO>  collectionCoupons = consumeService.getCoupons();
+		Collection<CouponDTO> notExpiredCoupons = getNotExpiredCoupons(collectionCoupons);
+		
+		return notExpiredCoupons;
+	}
+
+	public Collection<CouponDTO> getNotExpiredCoupons(Collection<CouponDTO> collectionCoupons) {
 		CouponDTO[] arrayCoupons = collectionCoupons.toArray(new CouponDTO[collectionCoupons.size()]);
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -49,7 +55,6 @@ public class CouponServiceImp implements CouponService {
 		} ).toArray(CouponDTO[]::new);;
 		
 		Collection<CouponDTO> notExpiredCoupons = new ArrayList<CouponDTO>(Arrays.asList(arrayCoupons));
-		
 		return notExpiredCoupons;
 	}
 

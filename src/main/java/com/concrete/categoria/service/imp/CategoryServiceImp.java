@@ -21,9 +21,12 @@ public class CategoryServiceImp implements CategoryService {
 	@Autowired
 	ConsumeService consumeService;
 	
+	
 	public CategoryThreeDTO getCategoriesTree() {
 		
 		return consumeService.getCategories();
+		
+		
 	}
 	
 	@Override
